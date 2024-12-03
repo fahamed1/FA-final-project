@@ -13,6 +13,7 @@ abstract class Model {
         $string = "mysql:hostname=" . DBHOST . ";dbname=" . DBNAME;
         $con = new \PDO($string, DBUSER, DBPASS);
         return $con;
+
     }
 
     public function query($query, $data = []) {

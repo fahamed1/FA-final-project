@@ -1,1 +1,58 @@
 <div>imagine i am a users view</div>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Air Quality Data - User View</title>
+</head>
+<body>
+    <h2>Latest Air Quality Data</h2>
+    <div>
+        <button id="refresh-button" class="btn btn-primary">Refresh Data</button>
+    </div>
+    <div id="data-container">
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            function fetchData() {
+            $.ajax({
+                url: 'http://localhost:8888/api/airquality', // API endpoint to fetch all data
+                type: "GET",
+                success: function (data) {
+                    // Clear the container
+                    $('#data-container').html('');
+                    
+                    // Append each data item
+                    $.each(data, function (index, item) {
+                        $('#data-container').append(`
+                            <div class="data-item">
+                                <p><strong>City:</strong> ${item.city}</p>
+                                <p><strong>Country:</strong> ${item.country}</p>
+                                <p><strong>AQI:</strong> ${item.aqi}</p>
+                                <hr>
+                            </div>
+                        `);
+                    });
+                },
+                error: function () {
+                    $('#data-container').html('<p>Error fetching data. Please try again later.</p>');
+                }
+            });
+        }
+
+        fetchData();
+
+        //Refresh data on button click
+        $('#refresh-button').click(function () {
+            fetchData();
+        });
+
+        })
+    </script>
+    
+</body>
+</html>
+
+

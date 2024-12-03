@@ -1,3 +1,44 @@
-p {
-    color: blue;
+
+.nav_bar {
+    background-color: darkseagreen;
+    height: 80px;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    opacity: 1;
+}
+
+.logo {
+    color: darkgreen;
+    font-size: 30px;
+}
+
+.logo span {
+    color: azure;
+}
+
+.nav_bar ul {
+    list-style: none;
+    display: flex;
+}
+
+
+.nav_bar ul li {
+    padding: 20px 30px;
+    position: relative;
+}
+
+.nav_bar ul li a {
+    color: aliceblue;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.nav_bar ul li a:hover {
+    color: forestgreen;
 }

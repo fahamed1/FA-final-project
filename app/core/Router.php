@@ -4,6 +4,7 @@ namespace app\core;
 
 use app\controllers\MainController;
 use app\controllers\UserController;
+use app\controllers\FeedbackController;
 
 class Router {
     public $urlArray;
@@ -38,5 +39,18 @@ class Router {
             $userController = new UserController();
             $userController->getUsers();
         }
+    }
+
+    protected function handleFeedbackRoutes() {         
+    if ($this->urlArray[1] === 'api' && $this->urlArray[2] === 'feedback' && $_SERVER['REQUEST_METHOD'] === 'POST') {
+        $feedbackController = new FeedbackController();
+        $feedbackController->saveFeedback();
+    }
+
+    if ($this->urlArray[1] === 'api' && $this->urlArray[2] === 'feedback' && $_SERVER['REQUEST_METHOD'] === 'GET') {
+        $feedbackController = new FeedbackController();
+        $feedbackController->getFeedback(); 
+    }
+
     }
 }

@@ -6,7 +6,9 @@ require '../app/models/Model.php';
 require '../app/controllers/Controller.php';
 require '../app/controllers/MainController.php';
 require '../app/controllers/UserController.php';
+require '../app/controllers/FeedbackController.php';
 require '../app/models/User.php';
+require '../app/models/Feedback.php';
 
 
 //set up env variables
@@ -16,7 +18,7 @@ define('DBNAME', $env['DBNAME']);
 define('DBHOST', $env['DBHOST']);
 define('DBUSER', $env['DBUSER']);
 define('DBPASS', $env['DBPASS']);
-define('DBDRIVER', '');
+define('DBDRIVER', 'mysql');
 
 //set up other configs
 define('DEBUG', true);

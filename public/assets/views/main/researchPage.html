@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Project 2</title>
+        <link rel="stylesheet" href="styles.css" />
+        <link rel="icon" href="favicon.ico" type="image/x-icon" />
+        <script type="text/javascript" src="script.js"></script>
+
+
+        <style>
+            /* Add CSS styles for your web site here and use them in index.html. */
+
+.nav_bar {
+    background-color: #475e49;
+    height: 80px;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    opacity: 1;
+}
+
+.logo {
+    color: #a4bfa7;
+    font-size: 30px;
+}
+
+.logo span {
+    color: azure;
+}
+
+.nav_bar ul {
+    list-style: none;
+    display: flex;
+}
+
+
+.nav_bar ul li {
+    padding: 20px 30px;
+    position: relative;
+}
+
+.nav_bar ul li a {
+    color: aliceblue;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.nav_bar ul li a:hover {
+    color: #c7f0cb;
+}
+
+.aq-inequality {
+    width: 90%;
+    background-color: aliceblue;
+    color: #455947;
+    font-size: large;
+    margin: 10px; 
+    padding: 20px;
+}
+
+.research {
+    width: 90%;
+    background-color: #415e45;
+    margin: 10px; 
+    padding: 20px;
+    border-radius: 10px;
+    color: #cadfcc;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    border-radius: 5px;
+}
+        </style>
+    </head>
+
+    <body>
+        <!-- Add HTML markup elements for your web site below -->
+        <h2>Welcome to Project 2!</h2>
+        <div></div>
+
+        <div class="nav_bar">
+
+            <h1 class="logo">B<span>AQ</span></h1>
+            <ul>
+              <li><a href="homepage.html">Home</a></li>
+              <li><a href="userView.html">User</a></li>
+            </ul>  
+      
+        </div>
+       
+
+        <div class="research">
+            <h3>Air Quality and Biodiversity Research</h3>
+            <p>For our research at Biobus, we wanted to test if there is a correlation between level of biodiversity and air quality in the West Harlem area. Previous research have supported the idea that tree biodiversity in green spaces can be effective in removing PM 2.5 in the air. For our research project at Biobus, we wanted to test is different levels of plant and tree biodivesity in green spaces affect the PM 2.5 in the air. We wanted to particularly test community gardens which usually have various different trees and plants, a playgorund where kids spend a lot of their times, and a round-about park which is typically where people go to relax for a bit. Despite the kind of garden, park spaces in urban areas are usually a gateaway for people from the city chaos, so we wanted to test if air quality and biodiversity might relate so we can better design our parks.
+            </p>
+
+            <h3>Research Question</h3>
+            <p>How does the level of biodiversity in different green spaces in West Harlem affect the amount of PM2.5 in the air?</p>
+
+            <div id="methods" class="methods">
+
+                <h1>Methods</h1>
+                <p>In order to test our question, here are some of the key steps that we took:</p>
+            
+                <ol type="1">
+                    <li>Pick 3 different green spaces that we estimated to be different levels of biodiversity based on general Google Maps overwiew.</li>
+                    <li>Build a 1x1 quadrad.</li>
+                    <li>Use google maps to randomly select 8 different coordinates in each park.</li>
+                    <li>Go to the each park and place quadrads on each coordinate and identify different plants.</li>
+                    <li>Classify levels of biodiversity utilizng the Shannon's index.</li>
+                    <li>Go back to each park and take air quality measures for 10 minutes on each coordinate. Make sure to take each set of  measures on the same day. Do 3 repetitions.</li>
+                    <li>Consolidate the data and determine air quality and biodiversity correlations.</li>
+                    
+                </ol>
+            
+                </div>
+
+            <h3>Research Question</h3>
+            <p>How does the level of biodiversity in different green spaces in West Harlem affect the amount of PM2.5 in the air?            </p>
+            <div class="results">
+
+            </div>
+
+            <div class="conclusion">
+                <h4>Conclusion</h4>
+                <p>Our experiment indicates that high levels of biodiversity and higher PM 2.5 removal aren't necesarily correlated. According to our data, Sakura Park had the lowest PM 2.5 levels and was the second most biodiverse park. Due to the short amount of time we had to conduct this experiment, we were not able to do many repitions to strenghten our findings. In the future, we would love to do more repetitions and elimate other external influnce by keeping additional factors suchs park size constant.
+                </p>
+            </div>
+        </div>
+
+    </body>
+</html>

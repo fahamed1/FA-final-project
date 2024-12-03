@@ -2,11 +2,117 @@
     <head>
         <!-- remember to route relative to index.php  -->
         <script type="text/javascript" src="./assets/js/homepage.js"></script>
-        <link rel="stylesheet" href="./assets/styles/homepage.css">
+        <!-- <link rel="stylesheet" href="./assets/styles/homepage.css">  -->
+        <link rel="stylesheet" href="../styles/homepage.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+   <style>
+    .nav_bar {
+    background-color: #475e49;
+    height: 80px;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    opacity: 1;
+}
+
+.logo {
+    color: #a4bfa7;
+    font-size: 30px;
+}
+
+.logo span {
+    color: azure;
+}
+
+.nav_bar ul {
+    list-style: none;
+    display: flex;
+}
+
+
+.nav_bar ul li {
+    padding: 20px 30px;
+    position: relative;
+}
+
+.nav_bar ul li a {
+    color: aliceblue;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.nav_bar ul li a:hover {
+    color: #c7f0cb;
+}
+   </style>
     </head>
 
     <body>
-        <p>homepage!</p>
+
+        <!--Navigation bar on top-->
+        <div class="nav_bar">
+
+            <h1 class="logo">B<span>AQ</span></h1>
+            <ul>
+              <li><a href="homepage.html">Home</a></li>
+              <li><a href="userView.html">User</a></li>
+              <li><a href="researchPage.html">Research</a></li>
+              <li><a href="feedback.html">Feedback</a></li>
+            </ul>  
+      
+        </div>
+
+        <div class="container users-form margin-thirty">
+            <h2 class="margin-thirty">Find Air Quality Data</h2>
+            <form id="aq-form">
+                <div class="form-group margin-twenty">
+                    <label for="city-input" id="city-label">City</label> 
+                    <br>
+                    <input type="text" class="form-control" id="city-input" placeholder="Enter city...">
+                    <div id="city-error"></div>
+                </div>
+
+                <button type="submit" class="btn btn-primary submit-button margin-twenty">Submit</button>
+            </form>
+
+        <div id="data-container"></div>
+        </div>
+
+        <script>
+
+            $(document).ready(function () {
+            $('#aq-form').on('submit', function (e) {
+                e.preventDefault();
+                const city = $('#city-input').val();
+
+                $.ajax({
+                    url: 'http://localhost:8888/api/users',
+                    type: 'POST',
+                    data: { city: city },
+                    success: function (data) {
+                        $('#data-container').html(`
+                            <div>
+                                <p>City: ${data.city}</p>
+                                <p>Country: ${data.country}</p>
+                                <p>Air Quality Index (AQI): ${data.aqi}</p>
+                            </div>
+                        `);
+                        $('#city-input').val(''); 
+                    },
+                    error: function (response) {
+                        alert('Error: ' + JSON.stringify(response.responseJSON));
+                    }
+                });
+            });
+            })
+        </script>
+
     </body>
 </html>
 
