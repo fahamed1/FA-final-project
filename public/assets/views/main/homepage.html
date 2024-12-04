@@ -213,14 +213,13 @@
         $('#aq-form').on('submit', function (e) {
         e.preventDefault();
         
-        const borough = $('#borough-select').val();  // Get the selected borough from the dropdown
+        const borough = $('#borough-select').val();  
 
         if (!borough) {
             $('#data-container').html('<p>Please select a borough.</p>');
             return;
         }
 
-        // Construct the API URL with the selected borough
         const apiUrl = `https://data.cityofnewyork.us/resource/c3uy-2p5r.json?$where=geo_place_name='${borough}'&$limit=1000`;
 
         $.ajax({
@@ -228,7 +227,7 @@
             type: 'GET',
             success: function (data) {
                 if (data.length > 0) {
-                    const airQualityData = data[0];  // Display the first result for simplicity
+                    const airQualityData = data[0];  
 
                     $('#data-container').html(`
                         <h2>Air Quality Data for ${borough}</h2>
@@ -253,7 +252,7 @@
 
 
 
-       </script> 
+ </script> 
 
  </body>
  </html>

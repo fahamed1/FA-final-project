@@ -18,7 +18,7 @@ class User extends Model {
             $countryName = $data['data']['country'];
             $airQualityIndex = $data['data']['current']['pollution']['aqius'];
 
-            // Insert data into the database
+            
             $query = "INSERT INTO $this->table (city, country, aqi) VALUES (:city, :country, :aqi)";
             $data = [
                 'city' => $cityName,
@@ -28,7 +28,7 @@ class User extends Model {
 
             $this->query($query, $data);
 
-            // Return the saved data
+            
             return [
                 'city' => $cityName,
                 'country' => $countryName,
@@ -39,16 +39,15 @@ class User extends Model {
         return false;
     }
 
-    // Fetch saved air quality data from the database
     public function getSavedUserAQData() {
         $query = "SELECT * FROM $this->table ORDER BY id DESC LIMIT 1";
         $result = $this->query($query);
 
         //var_dump($result);
         
-        return $result ? $result[0] : null;  // Return the latest record
+        return $result ? $result[0] : null;  
 
-
-        //return $this->findAll();
     }
 }
+
+//Not used 

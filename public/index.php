@@ -9,8 +9,8 @@ require_once "../app/models/Feedback.php";
 require_once "../app/controllers/UserController.php";
 require_once '../app/controllers/MainController.php';
 require_once '../app/controllers/FeedbackController.php';
-require_once '../app/controllers/AQController.php';
-require_once '../app/models/AQModel.php';
+// require_once '../app/controllers/AQController.php';
+//require_once '../app/models/AQModel.php';
 
 use app\core\setup;
 use app\controllers\UserController;
@@ -46,11 +46,6 @@ if ($uri === '/feedback' && $_SERVER['REQUEST_METHOD'] === 'GET') {
 
 
 exit();
-
-?>
-
-error_log('REQUEST_URI: ' . $_SERVER["REQUEST_URI"]);
-error_log('URI Array: ' . print_r($uriArray, true));
 
 // Default fallback for unknown routes
 http_response_code(404);

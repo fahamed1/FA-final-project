@@ -5,7 +5,6 @@ namespace app\core;
 use app\controllers\MainController;
 use app\controllers\UserController;
 //use app\controllers\FeedbackController;
-use app\controllers\AQController;
 
 class Router {
     public $urlArray;
@@ -48,35 +47,4 @@ class Router {
         }
     }
 
-    // protected function handleFeedbackRoutes() {         
-//    if ($this->urlArray[1] === 'api' && $this->urlArray[2] === 'feedback' && $_SERVER['REQUEST_METHOD'] === 'POST') {
-//         error_log("Routing to Feedback POST");
-//         $feedbackController = new FeedbackController();
-//         $feedbackController->saveFeedback();
-        
-//     }
-    
-//     // Match GET requests to /api/feedback
-//     if ($this->urlArray[1] === 'api' && $this->urlArray[2] === 'feedback' && $_SERVER['REQUEST_METHOD'] === 'GET') {
-//         $feedbackController = new FeedbackController();
-//         $feedbackController->getFeedback();
-
-// if ($_SERVER['REQUEST_URI'] == '/submit-feedback' && $_SERVER['REQUEST_METHOD'] == 'POST') {
-//     $feedbackController = new FeedbackController();
-//     $feedbackController->submitFeedback();
-// }
-
-//     }
-
-//     }
-
-    // protected function handleAirQualityRoutes() {
-    //     if ($_SERVER['REQUEST_URI'] == '/submit-feedback' && $_SERVER['REQUEST_METHOD'] == 'POST') {
-    //         $feedbackController = new FeedbackController();
-    //         $feedbackController->submitFeedback();
-    //     }
-        
-    // }
-// 
-//     
 }

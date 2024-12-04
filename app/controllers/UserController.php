@@ -45,10 +45,10 @@ class UserController extends Controller {
         //var_dump($data);
 
         if ($data) {
-            // Return the saved data as a JSON response
+            
             echo json_encode($data);
         } else {
-            // Handle API or database errors
+            
             http_response_code(500);
             echo json_encode(['error' => 'Failed to fetch and save air quality data.']);
         }

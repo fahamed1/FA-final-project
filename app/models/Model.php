@@ -45,15 +45,6 @@ abstract class Model {
             die("Database connection failed: " . $e->getMessage());
         }
 
-        // try {
-        //     $string = "mysql:host=" . DBHOST . ";port=8889;dbname=" . DBNAME;
-        //     $con = new \PDO($string, DBUSER, DBPASS); // DBPASS can be empty
-        //     $con->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
-        //     return $con;
-        // } catch (\PDOException $e) {
-        //     die("Database connection failed: " . $e->getMessage());
-        // }
-
     }
 
     public function query($query, $data = []) {

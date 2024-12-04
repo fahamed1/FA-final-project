@@ -45,9 +45,6 @@ class FeedbackController
             exit();
         }
 
-        // $firstName = htmlspecialchars($firstName, ENT_QUOTES | ENT_HTML5, 'UTF-8');
-        // $lastName = htmlspecialchars($lastName, ENT_QUOTES | ENT_HTML5, 'UTF-8');
-        // $feedbackMessage = htmlspecialchars($feedbackMessage, ENT_QUOTES | ENT_HTML5, 'UTF-8');
         return [
             'firstName' => $firstName,
             'lastName' => $lastName,
@@ -78,11 +75,6 @@ class FeedbackController
         ]);
         exit();
     }
-
-    // public function usersView() {
-    //     include '../public/assets/views/user/users-view.html';
-    //     exit();
-    // }
 
     public function usersFeedback() {
         include '../public/assets/views/main/feedback.html';

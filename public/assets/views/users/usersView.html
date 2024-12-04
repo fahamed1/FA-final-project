@@ -18,13 +18,12 @@
         $(document).ready(function () {
             function fetchData() {
             $.ajax({
-                url: 'http://localhost:8888/api/airquality', // API endpoint to fetch all data
+                url: 'http://localhost:8888/api/airquality', 
                 type: "GET",
                 success: function (data) {
-                    // Clear the container
-                    $('#data-container').html('');
                     
-                    // Append each data item
+                    $('#data-container').html('');
+  
                     $.each(data, function (index, item) {
                         $('#data-container').append(`
                             <div class="data-item">
@@ -44,7 +43,6 @@
 
         fetchData();
 
-        //Refresh data on button click
         $('#refresh-button').click(function () {
             fetchData();
         });
@@ -54,5 +52,5 @@
     
 </body>
 </html>
-
+<!-- not used -->
 
