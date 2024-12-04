@@ -42,7 +42,7 @@ class UserController extends Controller {
 
         $userAQModel = new User();
         $data = $userAQModel->getAllUsersData($city);
-        var_dump($data);
+        //var_dump($data);
 
         if ($data) {
             // Return the saved data as a JSON response

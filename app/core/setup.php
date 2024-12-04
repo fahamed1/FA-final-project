@@ -10,6 +10,8 @@ require_once '../app/controllers/UserController.php';
 require_once '../app/controllers/FeedbackController.php';
 require_once '../app/models/User.php';
 require_once '../app/models/Feedback.php';
+require_once '../app/controllers/AQController.php';
+require_once '../app/models/AQModel.php';
 
 
 //set up env variables
@@ -20,6 +22,8 @@ define('DBHOST', $env['DBHOST']);
 define('DBUSER', $env['DBUSER']);
 define('DBPASS', $env['DBPASS']);
 define('DBDRIVER', 'mysql');
+//define('API_KEY', $env['API_KEY']);
+
 
 //set up other configs
 define('DEBUG', true);

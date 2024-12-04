@@ -9,38 +9,48 @@ require_once "../app/models/Feedback.php";
 require_once "../app/controllers/UserController.php";
 require_once '../app/controllers/MainController.php';
 require_once '../app/controllers/FeedbackController.php';
+require_once '../app/controllers/AQController.php';
+require_once '../app/models/AQModel.php';
 
+use app\core\setup;
 use app\controllers\UserController;
 use app\controllers\MainController;
 use app\controllers\FeedbackController;
+use app\controllers\AQController;
+
 
 use app\core\Router;
 $router = new Router();
+error_log('Router initialized');
+
+$router->handleFeedbackRoutes();
 
 $url = strtok($_SERVER["REQUEST_URI"], '?');
 $uriArray = explode("/", $url);
 
-// if ($uriArray[1] === 'api' && $uriArray[2] === 'users') {
-//     $userController = new UserController();
-//     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-//         $userController->saveUserData();
-//     } elseif ($_SERVER['REQUEST_METHOD'] === 'GET') {
-//         $userController->getUsersData();
-//     }
-//     exit();
-// }
+//save user
+if ($uriArray[1] === 'api' && $uriArray[2] === 'feedback' && $_SERVER['REQUEST_METHOD'] === 'POST') {
+    $feedbackController = new FeedbackController();
+    $feedbackController->saveFeedback();
+}
 
-// if ($uriArray[1] === 'api' && $uriArray[2] === 'feedback' && $_SERVER['REQUEST_METHOD'] === 'POST') {
-//     $feedbackController = new FeedbackController();
-//     $feedbackController->saveFeedback();
-//     exit();
-// }
 
-// if ($uriArray[1] === '' || $uriArray[1] === 'homepage') {
-//     $mainController = new MainController();
-//     $mainController->homepage();
-//     exit();
-// }
+
+//views
+
+
+if ($uri === '/feedback' && $_SERVER['REQUEST_METHOD'] === 'GET') {
+    $feedbackController = new FeedbackController();
+    $feedbackController->usersFeedback();
+}
+
+
+exit();
+
+?>
+
+error_log('REQUEST_URI: ' . $_SERVER["REQUEST_URI"]);
+error_log('URI Array: ' . print_r($uriArray, true));
 
 // Default fallback for unknown routes
 http_response_code(404);

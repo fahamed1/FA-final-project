@@ -23,6 +23,7 @@
     top: 0;
     z-index: 100;
     opacity: 1;
+    border: 2px solid #e9efe6;
 }
 
 .logo {
@@ -56,7 +57,7 @@
 }
 
 .aq-inequality {
-    width: 90%;
+    width: 100%;
     background-color: aliceblue;
     color: #455947;
     font-size: large;
@@ -65,9 +66,9 @@
 }
 
 .research {
-    width: 90%;
+    width: 97%;
     background-color: #415e45;
-    margin: 10px; 
+    margin: 1px; 
     padding: 20px;
     border-radius: 10px;
     color: #cadfcc;
@@ -82,7 +83,7 @@
     background-color: #c7f0cb;
     color: #475e49;
     padding: 10px;
-
+    border-radius: 5px;
 }
 
 .conclusion {
@@ -93,27 +94,77 @@
     margin-top: 5px;
 }
 
+.concluion-container {
+    display: flex;
+    justify-content: space-between;
+    /* gap: 20px; */
+    flex-wrap: wrap;
+    margin-left: 100px;
+    margin-right: 100px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #193017;
+    margin-top: 30px;
+}
+
+.data-preview {
+    flex: 1;
+    margin-top: 20px;
+    min-width: 400px;
+    height: 300px;
+    padding: 20px;
+    overflow: hidden;
+    color: #ccdec6;
+}
+
+.tree-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-left: 100px;
+    margin-right: 100px;
+
+}
+
+.tree-preview {
+    flex: 1;
+    margin: 20px;
+    min-width: 400px;
+    height: 300px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    overflow: hidden;
+    color: #172f0f;
+}
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
         </style>
     </head>
 
     <body>
         <!-- Add HTML markup elements for your web site below -->
-        <h2>Welcome to Project 2!</h2>
-        <div></div>
 
         <div class="nav_bar">
 
             <h1 class="logo">B<span>AQ</span></h1>
             <ul>
-              <li><a href="homepage.html">Home</a></li>
-              <li><a href="userView.html">User</a></li>
+              <li><a href="/assets/views/main/homepage.html">Home</a></li>
+              <li><a href="/assets/views/main/researchPage.html">Research</a></li>
+              <li><a href="/assets/views/main/feedback.html">Feedback</a></li>
             </ul>  
       
         </div>
        
 
         <div class="research">
-            <h3>Air Quality and Biodiversity Research</h3>
+            <h3 style="font-size: 30px;">Air Quality and Biodiversity Research</h3>
             <p>For our research at Biobus, we wanted to test if there is a correlation between level of biodiversity and air quality in the West Harlem area. Previous research have supported the idea that tree biodiversity in green spaces can be effective in removing PM 2.5 in the air. For our research project at Biobus, we wanted to test is different levels of plant and tree biodivesity in green spaces affect the PM 2.5 in the air. We wanted to particularly test community gardens which usually have various different trees and plants, a playgorund where kids spend a lot of their times, and a round-about park which is typically where people go to relax for a bit. Despite the kind of garden, park spaces in urban areas are usually a gateaway for people from the city chaos, so we wanted to test if air quality and biodiversity might relate so we can better design our parks.
             </p>
 
@@ -142,10 +193,30 @@
 
             </div>
 
-            <div class="conclusion">
-                <h4>Conclusion</h4>
+
+            <div class="concluion-container">
+                <div class="data-preview">
+                    <h4>Conclusion</h4>
                 <p>Our experiment indicates that high levels of biodiversity and higher PM 2.5 removal aren't necesarily correlated. According to our data, Sakura Park had the lowest PM 2.5 levels and was the second most biodiverse park. Due to the short amount of time we had to conduct this experiment, we were not able to do many repitions to strenghten our findings. In the future, we would love to do more repetitions and elimate other external influnce by keeping additional factors suchs park size constant.
                 </p>
+                </div>
+                
+                <div class="data-preview">
+                    <img src="/assets/views/main/data.png" alt="Our Data" style="width:450px;height:280px;">
+                </div>
+        
+            </div>
+
+            <div class="tree-container">
+                <div class="tree-preview">
+                    <iframe src="https://www.woodlandtrust.org.uk/trees-woods-and-wildlife/british-trees/tackling-air-pollution-with-trees/" title="tree-data 1"></iframe>
+
+                </div>
+                
+                <div class="tree-preview">
+                    <iframe src="https://tree-map.nycgovparks.org/" title="tree-map 1"></iframe>
+                </div>
+        
             </div>
         </div>
 

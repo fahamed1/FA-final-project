@@ -4,9 +4,9 @@ namespace app\controllers;
 
 use app\models\Feedback;
 
-class FeedbackController extends Controller 
+class FeedbackController
 {
-    public function validateFeedback($inputData) {
+        public function validateFeedback($inputData) {
         $errors = [];
         $firstName = $inputData['firstName'];
         $lastName = $inputData['lastName'];
@@ -44,47 +44,33 @@ class FeedbackController extends Controller
             echo json_encode($errors);
             exit();
         }
+
+        // $firstName = htmlspecialchars($firstName, ENT_QUOTES | ENT_HTML5, 'UTF-8');
+        // $lastName = htmlspecialchars($lastName, ENT_QUOTES | ENT_HTML5, 'UTF-8');
+        // $feedbackMessage = htmlspecialchars($feedbackMessage, ENT_QUOTES | ENT_HTML5, 'UTF-8');
         return [
             'firstName' => $firstName,
             'lastName' => $lastName,
             'feedbackMessage' => $feedbackMessage,
         ];
-    }
-
-    public function getAllFeedback() {
-        $feedbackModel = new Feedback();
-        header("Content-Type: application/json");
-        $feedbacks = $feedbackModel->getAllFeedback();
-
-        echo json_encode($feedbacks);
-        exit();
-    }
-
-    public function getFeedbackByUser($name) {
-        $feedbackModel= new Feedback();
-        header("Content-Type: application/json");
-        $feedbacks = $feedbackModel->getFeedbackByUser($name);
-        echo json_encode($feedbacks);
-        exit();
-    }
+    } 
 
     public function saveFeedback() {
         $inputData = [
             'firstName' => $_POST['firstName'] ? $_POST['firstName'] : false,
             'lastName' => $_POST['lastName'] ? $_POST['lastName'] : false,
             'feedbackMessage' => $_POST['feedbackMessage'] ? $_POST['feedbackMessage'] : false,
-
         ];
-
-
         $feedbackData = $this->validateFeedback($inputData);
 
         $feedback = new Feedback();
-        $feedback->saveFeedback([
-            'firstName' => $feedbackData['firstName'],
-            'lastName' => $feedbackData['lastName'],
-            'feedbackMessage' => $feedbackData['feedbackMessage'],
-        ]);
+        $feedback->saveFeedback(
+            [
+                'firstName' => $feedbackData['firstName'],
+                'lastName' => $feedbackData['lastName'],
+                'feedbackMessage' => $feedbackData['feedbackMessage'],
+            ]
+        );
 
         http_response_code(200);
         echo json_encode([
@@ -92,13 +78,15 @@ class FeedbackController extends Controller
         ]);
         exit();
     }
-    
 
-    public function usersView() {
-        include '../public/assets/views/users/usersView.html';
+    // public function usersView() {
+    //     include '../public/assets/views/user/users-view.html';
+    //     exit();
+    // }
+
+    public function usersFeedback() {
+        include '../public/assets/views/main/feedback.html';
         exit();
     }
-
-
 
 }
