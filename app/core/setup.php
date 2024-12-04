@@ -1,14 +1,15 @@
 <?php
 
 //require our files, remember should be relative to index.php
-require '../app/core/Router.php';
-require '../app/models/Model.php';
+
+require_once "../app/core/Router.php";
+require_once '../app/models/Model.php';
 require '../app/controllers/Controller.php';
-require '../app/controllers/MainController.php';
-require '../app/controllers/UserController.php';
-require '../app/controllers/FeedbackController.php';
-require '../app/models/User.php';
-require '../app/models/Feedback.php';
+require_once '../app/controllers/MainController.php';
+require_once '../app/controllers/UserController.php';
+require_once '../app/controllers/FeedbackController.php';
+require_once '../app/models/User.php';
+require_once '../app/models/Feedback.php';
 
 
 //set up env variables

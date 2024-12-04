@@ -10,9 +10,28 @@ abstract class Model {
     }
 
     private function connect() {
-        $string = "mysql:hostname=" . DBHOST . ";dbname=" . DBNAME;
-        $con = new \PDO($string, DBUSER, DBPASS);
-        return $con;
+        // $string = "mysql:hostname=" . DBHOST . ";dbname=" . DBNAME;
+        // $con = new \PDO($string, DBUSER, DBPASS);
+        // return $con;
+
+        // try {
+        //     $string = "mysql:hostname=" . DBHOST . ";dbname=" . DBNAME;
+        //     $con = new \PDO($string, DBUSER, DBPASS);
+        //     $con->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+        //     return $con;
+        // } catch (\PDOException $e) {
+        //     // Catching the error and printing the message
+        //     die("Database connection failed: " . $e->getMessage());
+        // }
+
+        try {
+            $string = "mysql:host=" . DBHOST . ";port=8889;dbname=" . DBNAME;
+            $con = new \PDO($string, DBUSER, DBPASS); // DBPASS can be empty
+            $con->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+            return $con;
+        } catch (\PDOException $e) {
+            die("Database connection failed: " . $e->getMessage());
+        }
 
     }
 

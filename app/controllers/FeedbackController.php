@@ -78,13 +78,11 @@ class FeedbackController extends Controller
         $feedbackData = $this->validateFeedback($inputData);
 
         $feedback = new Feedback();
-        $feedback->saveFeedback(
-            [
-                'firstName' => $$feedbackData['firstName'],
-                'lastName' => $$feedbackData['lastName'],
-                'feedbackMessage' => $$feedbackData['feedbackMessage'],
-            ]
-        );
+        $feedback->saveFeedback([
+            'firstName' => $feedbackData['firstName'],
+            'lastName' => $feedbackData['lastName'],
+            'feedbackMessage' => $feedbackData['feedbackMessage'],
+        ]);
 
         http_response_code(200);
         echo json_encode([

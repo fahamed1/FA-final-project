@@ -22,9 +22,13 @@ class Router {
     }
 
     protected function handleMainRoutes() {
+
         if ($this->urlArray[1] === '' && $_SERVER['REQUEST_METHOD'] === 'GET') {
             $mainController = new MainController();
             $mainController->homepage();
+        } else {
+            $mainController = new MainController();
+            $mainController->notFound();
         }
     }
 

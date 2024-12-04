@@ -1,12 +1,14 @@
 <?php
 
 // Include required files
-require '../app/core/setup.php';
-require "../app/models/User.php";
-require "../app/models/Feedback.php";
-require "../app/controllers/UserController.php";
-require '../app/controllers/MainController.php';
-require '../app/controllers/FeedbackController.php';
+require_once '../app/core/setup.php';
+require_once "../app/core/Router.php";
+require_once '../app/models/Model.php';
+require_once '../app/models/User.php';
+require_once "../app/models/Feedback.php";
+require_once "../app/controllers/UserController.php";
+require_once '../app/controllers/MainController.php';
+require_once '../app/controllers/FeedbackController.php';
 
 use app\controllers\UserController;
 use app\controllers\MainController;

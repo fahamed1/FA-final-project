@@ -44,7 +44,7 @@ class User extends Model {
         $query = "SELECT * FROM $this->table ORDER BY id DESC LIMIT 1";
         $result = $this->query($query);
 
-        var_dump($data); 
+        var_dump($result);
         
         return $result ? $result[0] : null;  // Return the latest record
 

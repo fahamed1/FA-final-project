@@ -56,11 +56,13 @@ class UserController extends Controller {
         exit();
     }
 
-    }
 
     public function usersView() {
-        $this->returnView('./assets/views/users/usersView.html');
+        $this->
+        returnView('./assets/views/users/usersView.html');
     }
+
+}
 
 
 
