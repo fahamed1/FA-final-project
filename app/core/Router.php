@@ -66,6 +66,7 @@ class Router {
     if ($this->urlArray[1] === 'api' && $this->urlArray[2] === 'feedback' && $_SERVER['REQUEST_METHOD'] === 'GET') {
         $feedbackController = new FeedbackController();
         $feedbackController->getFeedback();
+
     }
 
     }

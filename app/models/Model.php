@@ -10,28 +10,49 @@ abstract class Model {
     }
 
     private function connect() {
-        // $string = "mysql:hostname=" . DBHOST . ";dbname=" . DBNAME;
-        // $con = new \PDO($string, DBUSER, DBPASS);
-        // return $con;
 
-        // try {
-        //     $string = "mysql:hostname=" . DBHOST . ";dbname=" . DBNAME;
-        //     $con = new \PDO($string, DBUSER, DBPASS);
-        //     $con->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
-        //     return $con;
-        // } catch (\PDOException $e) {
-        //     // Catching the error and printing the message
-        //     die("Database connection failed: " . $e->getMessage());
-        // }
+//         $type = 'mysql';
+//         $port = '8889';
+//         $charset = 'utf8mb4';
+
+// //      some of these are optional
+//         $dsn = "$type:hostname=" . DBHOST .";dbname=" . DBNAME . ";port=$port;charset=$charset";
+
+//         $options = [
+//             //we can set the error mode, to throw exceptions or PDO type errors
+//             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+//             //set the default fetch type
+//             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+//         ];
+
+//         try {
+//             return new PDO($dsn, DBUSER, DBPASS, $options);
+//         } catch (PDOException $e) {
+//             throw new PDOException($e->getMessage(), $e->getCode());
+//         }
+
+        $string = "mysql:hostname=" . DBHOST . ";dbname=" . DBNAME;
+        $con = new \PDO($string, DBUSER, DBPASS);
+        return $con;
 
         try {
-            $string = "mysql:host=" . DBHOST . ";port=8889;dbname=" . DBNAME;
-            $con = new \PDO($string, DBUSER, DBPASS); // DBPASS can be empty
+            $string = "mysql:hostname=" . DBHOST . ";dbname=" . DBNAME;
+            $con = new \PDO($string, DBUSER, DBPASS);
             $con->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
             return $con;
         } catch (\PDOException $e) {
+            // Catching the error and printing the message
             die("Database connection failed: " . $e->getMessage());
         }
+
+        // try {
+        //     $string = "mysql:host=" . DBHOST . ";port=8889;dbname=" . DBNAME;
+        //     $con = new \PDO($string, DBUSER, DBPASS); // DBPASS can be empty
+        //     $con->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+        //     return $con;
+        // } catch (\PDOException $e) {
+        //     die("Database connection failed: " . $e->getMessage());
+        // }
 
     }
 

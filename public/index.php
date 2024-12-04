@@ -14,10 +14,6 @@ use app\controllers\UserController;
 use app\controllers\MainController;
 use app\controllers\FeedbackController;
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 use app\core\Router;
 $router = new Router();
 
