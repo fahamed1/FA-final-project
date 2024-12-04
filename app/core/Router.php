@@ -14,6 +14,7 @@ class Router {
         $this->urlArray = $this->routeSplit();
         $this->handleMainRoutes();
         $this->handleUserRoutes();
+        $this->handleFeedbackRoutes();
     }
 
     protected function routeSplit() {
@@ -46,14 +47,25 @@ class Router {
     }
 
     protected function handleFeedbackRoutes() {         
+    // if ($this->urlArray[1] === 'api' && $this->urlArray[2] === 'feedback' && $_SERVER['REQUEST_METHOD'] === 'POST') {
+    //     $feedbackController = new FeedbackController();
+    //     $feedbackController->saveFeedback();
+    // }
+
+    // if ($this->urlArray[1] === 'api' && $this->urlArray[2] === 'feedback' && $_SERVER['REQUEST_METHOD'] === 'GET') {
+    //     $feedbackController = new FeedbackController();
+    //     $feedbackController->getFeedback(); 
+    // }
+
     if ($this->urlArray[1] === 'api' && $this->urlArray[2] === 'feedback' && $_SERVER['REQUEST_METHOD'] === 'POST') {
         $feedbackController = new FeedbackController();
         $feedbackController->saveFeedback();
     }
-
+    
+    // Match GET requests to /api/feedback
     if ($this->urlArray[1] === 'api' && $this->urlArray[2] === 'feedback' && $_SERVER['REQUEST_METHOD'] === 'GET') {
         $feedbackController = new FeedbackController();
-        $feedbackController->getFeedback(); 
+        $feedbackController->getFeedback();
     }
 
     }

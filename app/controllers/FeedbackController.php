@@ -75,6 +75,8 @@ class FeedbackController extends Controller
             'feedbackMessage' => $_POST['feedbackMessage'] ? $_POST['feedbackMessage'] : false,
 
         ];
+
+
         $feedbackData = $this->validateFeedback($inputData);
 
         $feedback = new Feedback();
